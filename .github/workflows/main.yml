@@ -1,0 +1,17 @@
+name: Build Hydrino
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: "9.2.0" }
+      - run: |
+          DIR=$(dirname "$(find . -name settings.gradle | head -1)")
+          echo "Building in $DIR"
+          gradle build -p "$DIR"
+      - uses: actions/upload-artifact@v4
+        with: { name: hydrino-jar, path: "**/build/libs/hydrino-1.0.0.jar" }
