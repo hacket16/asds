@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "hydrino",
+  "version": "1.0.0",
+  "name": "Hydrino",
+  "description": "Meteor addon: schematic builder, auto farm, 6b6t tools.",
+  "authors": ["You"],
+  "environment": "client",
+  "entrypoints": { "meteor": ["com.hydrino.HydrinoAddon"] },
+  "custom": { "meteor-client:color": "0,170,255" },
+  "depends": { "meteor-client": "*" }
+}
